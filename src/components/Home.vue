@@ -26,7 +26,7 @@ export default {
   },
   methods: {
     testMethod () {
-        console.log(`console.log(cordova): ${cordova}`)
+        console.log('console.log(cordova): %O', cordova)
     }
   }
 }
