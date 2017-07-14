@@ -8,12 +8,10 @@
         <!-- <i class="text-grey-5">error_outline</i> -->
         <p class="caption text-center">Welcome Screen...</p>
         <p class="text-center group">
-          <router-link to="/stockin">
-            <button class="grey push small">
-              Go home
-              <!-- <i class="on-right">Enter</i> -->
-            </button>
-          </router-link>
+          <button class="grey push small" @click="testMethod()">
+            run console.log(cordova)
+            <!-- <i class="on-right">Enter</i> -->
+          </button>
         </p>
       </div>
     </div>
@@ -22,8 +20,15 @@
 
 <script>
 
-
 export default {
+  data () {
+    return {}
+  },
+  methods: {
+    testMethod () {
+        console.log(`console.log(cordova): ${cordova}`)
+    }
+  }
 }
 </script>
 
