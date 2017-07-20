@@ -8,12 +8,12 @@
   </div>
   <!-- Navigation Tabs -->
   <q-tabs slot="navigation">
-    <q-tab icon="shopping" route="/stockin" exact replace>In</q-tab>
+    <q-tab icon="alarm" route="/stockin" exact replace>In</q-tab>
     <q-tab icon="alarm" route="/stockout" exact replace>Out</q-tab>
     <q-tab icon="help" route="/help" exact replace>help</q-tab>
   </q-tabs>
   <!-- IF USING subRoutes only: -->
-  <router-view class="layout-view"></router-view>
+  <!-- <router-view class="layout-view"></router-view> -->
   <!-- OR ELSE, IF NOT USING subRoutes: -->
   <div class="layout-view">Hello Home screen</div>
 

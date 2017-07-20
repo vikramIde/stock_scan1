@@ -12,7 +12,7 @@
             <!-- run console.log(cordova) -->
             <!-- <i class="on-right">Enter</i> -->
           <!-- </button> -->
-          <router-link to="/stockin">
+          <router-link to="/help">
             <button class="grey push small">
               Go home
               <!-- <i class="on-right">Enter</i> -->

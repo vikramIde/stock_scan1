@@ -5,7 +5,9 @@
 // 2. or, use next line to activate DEFAULT QUASAR STYLE
 require(`quasar/dist/quasar.${__THEME}.css`)
 // ==============================
-
+Array.prototype.insert = function ( index, item ) {
+    this.splice( index, 0, item );
+};
 import Vue from 'vue'
 import Quasar from 'quasar'
 import router from './router'
