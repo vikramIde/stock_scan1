@@ -27,7 +27,8 @@ export default new VueRouter({
     { path: '/home', component: load('Index') }, // Default
     { path: '/stockin', component: load('stockin') }, // Default
     { path: '/stockout', component: load('stockout') }, // Default
-    { path: '/help', component: load('help') }, // Default
+    { path: '/help', component: load('help') },
+    { path: '/sync', component: load('sync') }, // Default
   ]
 })
 

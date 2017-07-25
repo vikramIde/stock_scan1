@@ -30,7 +30,6 @@
   </div>
 
 
-  <
   <!-- Footer -->
   <div slot="footer" class="toolbar">
     All right reserved Nano Corporatio 
