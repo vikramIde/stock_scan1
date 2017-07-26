@@ -24,7 +24,7 @@
           </small>
       </blockquote>
       <div v-else class="list striped" style="overflow:scroll;">
-          <div class="item two-lines item-delimiter" v-for="(item, id) in itemsInStock">
+          <div class="item two-lines item-delimiter" v-if="item.direction == 'In' " v-for="(item, id) in itemsInStock">
             <div class="item-primary bg-primary text-white"><i>assignment</i></div>
              <div class="item-content has-secondary"><div>{{item.code}}</div> 
              <div class="item-content has-secondary"><div style="font-weight:bold">{{item.timeStamp}}</div></div>
