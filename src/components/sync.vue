@@ -42,6 +42,7 @@ function gotNoFileEntry()
   alert('Product.json Does not exist');
 }
 import { Dialog, Toast } from 'quasar'
+import store from './product-store'
 
 export default {
   
@@ -65,6 +66,7 @@ export default {
 
                          dir.remove(function (file) {
                             Toast.create.positive('Synching Finished and file deleted...')
+                            store.clear();
                             }, function (err) {
                               console.log(err); // Error while removing File
                             });

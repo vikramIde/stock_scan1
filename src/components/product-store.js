@@ -10,5 +10,10 @@ export default {
   del (id) {
     Vue.delete(this.state, id)
     LocalStorage.set('products_in_stock', this.state)
+  },
+  clear(){
+  	this.state ={};
+  	LocalStorage.remove('products_in_stock')
   }
+
 }
