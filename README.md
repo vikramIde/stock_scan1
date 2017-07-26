@@ -1,6 +1,6 @@
-# Quasar App
+# Stock Scanner App
 
-> A Quasar project
+> A Ncp project
 
 ## System Setup
 ```bash
