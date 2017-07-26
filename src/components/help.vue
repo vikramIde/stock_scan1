@@ -11,6 +11,7 @@
     <q-tab icon="alarm" route="/stockin" exact replace>In</q-tab>
     <q-tab icon="alarm" route="/stockout" exact replace>Out</q-tab>
     <q-tab icon="help" route="/help" exact replace>help</q-tab>
+    <q-tab icon="help" route="/sync" exact replace>sync</q-tab>
   </q-tabs>
   <!-- IF USING subRoutes only: -->
   <!-- <router-view class="layout-view"></router-view> -->
