@@ -1,67 +1,70 @@
 <template>
-  <q-layout>
-     <!-- Header -->
-  <div slot="header" class="toolbar">
-    <q-toolbar-title :padding="1">
-      Scan Stock (beta)
-    </q-toolbar-title>
-  </div>
-  <!-- Navigation Tabs -->
-  <q-tabs slot="navigation">
-    <q-tab icon="alarm" route="/stockin" exact replace>In</q-tab>
-    <q-tab icon="alarm" route="/stockout" exact replace>Out</q-tab>
-    <q-tab icon="help" route="/help" exact replace>help</q-tab>
-    <q-tab icon="help" route="/sync" exact replace>sync</q-tab>
-  </q-tabs>
-  
-  <div class="layout-padding">
-      
-      <p class="caption">SKU</p>
+  <div>
+     <div slot="header" class="toolbar">
+        <q-toolbar-title :padding="1">
+          Scan Stock (beta)
+        </q-toolbar-title>
+      </div>
+      <!-- Navigation Tabs -->
+      <q-tabs slot="navigation">
+        <q-tab icon="alarm" route="/stockin" exact replace>In</q-tab>
+        <q-tab icon="alarm" route="/stockout" exact replace>Out</q-tab>
+        <q-tab icon="help" route="/help" exact replace>help</q-tab>
+        <q-tab icon="help" route="/sync" exact replace>sync</q-tab>
+      </q-tabs>
+
+    <div class="layout-padding">
+       <p class="caption">SKU</p>
 
       <blockquote v-if="!hasITEMS">
           <small>
             Please Click on the (+) button to scan the item.
           </small>
       </blockquote>
-      <div v-else class="list striped" style="overflow:scroll;">
-          <div class="item two-lines item-delimiter" v-if="item.direction == 'In' " v-for="(item, id) in itemsInStock">
+      <div v-else class="list striped" >
+        <div class="item three-lines" v-if="item.direction == 'In' " v-for="(item, id) in itemsInStock">
+            
             <div class="item-primary bg-primary text-white"><i>assignment</i></div>
-             <div class="item-content has-secondary"><div>{{item.code}}</div> 
-             <div class="item-content has-secondary"><div style="font-weight:bold">{{item.timeStamp}}</div></div>
-             <!-- <div>{{item._barcode}}</div></div> <i class="item-secondary">dustbin</i> -->
-              <div class="item-content has-secondary"><div style="color:green,font-weight:bold">{{item.direction}}</div></div>
+            <div class="item-content has-secondary">
+              <div>{{item.code}}</div>
+              <div>{{item.timeStamp}}</div>
+            </div>
+            <div class="item-secondary stamp" style="color:green;font-weight:bold ">
+              {{item.direction}}
+            </div>
 
-                <div class="item-secondary">
-                  <i :ref="'target' + id">
-                    more_vert
-                  </i>
+              <div class="item-secondary">
+                <i :ref="'target' + id">
+                  more_horiz
+                
 
-                  <q-popover :ref="'popover' + id">
-                    <div class="list">
-                      <div class="item item-link" @click="$refs['popover' + id][0].close(), editProduct(id)">
-                        <i class="item-primary">edit</i>
-                        <div class="item-content">Edit</div>
-                      </div>
-                      <div class="item item-link" @click="$refs['popover' + id][0].close(), deleteProduct(id)">
-                        <i class="item-primary">delete</i>
-                        <div class="item-content">Delete</div>
-                      </div>
+                <q-popover :ref="'popover' + id">
+                  <div class="list">
+                    <div class="item item-link" @click="$refs['popover' + id][0].close(), editProduct(id)">
+                      <i class="item-primary">edit</i>
+                      <div class="item-content">Edit</div>
                     </div>
-                  </q-popover>
-                </div>
+                    <div class="item item-link" @click="$refs['popover' + id][0].close(), deleteProduct(id)">
+                      <i class="item-primary">delete</i>
+                      <div class="item-content">Delete</div>
+                    </div>
+                  </div>
+                </q-popover>
+                </i>
+              </div>
           </div>
+        </div>
+      </div>
+        <q-fab class=" absolute-bottom-right" classNames="primary" direction="up">
+         <q-small-fab class="absolute-bottom-right" @click.native="scanQR()" icon="phonelink_ring"></q-small-fab>
+        </q-fab>
+    </div>
 
-      </div>
-      </div>
-    <q-fab class=" absolute-bottom-right" classNames="primary" direction="up">
-     <q-small-fab class="absolute-bottom-right" @click.native="scanQR()" icon="phonelink_ring"></q-small-fab>
-    </q-fab>
-  </div>
-  <!-- Footer -->
-  <div slot="footer" class="toolbar">
+    <!-- Footer -->
+    <div slot="footer" class="toolbar">
     All right reserved Nano Corporation .
+    </div>
   </div>
-  </q-layout>
 </template>
 
 <script>
@@ -130,11 +133,17 @@ export default {
       let  that = this;
       cordova.plugins.barcodeScanner.scan( 
         function (result) {
-            var d = new Date();
-            var e = formatDate(d);
+            console.log('inside result')
+            if(result.text !='')
+            {
+                console.log('inside result chein')
+                var d = new Date();
+                var e = formatDate(d);
 
-            addProduct("randomName",result.text,'In',e);
-            that.checkFile();
+                addProduct("randomName",result.text,'In',e);
+                that.checkFile();
+            }
+            
         },
         function (error) {
             alert("Scanning failed: " + error);
