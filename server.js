@@ -22,12 +22,20 @@ app.route('/upload')
             console.log("Uploading: " + filename);
 
             //Path where image will be uploaded
-            fstream = fs.createWriteStream(__dirname + '/batch/' + filename);
-            file.pipe(fstream);
-            fstream.on('close', function () {    
-                console.log("Upload Finished of " + filename);              
-                res.redirect('back');           //where to go next
-            });
+            try {
+
+                fstream = fs.createWriteStream(__dirname + '/batch/' + filename);
+                file.pipe(fstream);
+                fstream.on('close', function () {    
+                    console.log("Upload Finished of " + filename);              
+                    res.send(JSON.stringify({ a: '1' }));           //where to go next
+                });
+
+            }
+            catch(e){
+                console.log(e);
+            }
+            
         });
     });
 
