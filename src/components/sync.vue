@@ -41,6 +41,42 @@ function gotNoFileEntry()
 {
   alert('Product.json Does not exist');
 }
+
+function uploadFile() {
+   var fileURL = "///data/user/0/stock.scan.nanocorp/files/batch/product.json"
+   var uri = encodeURI("http://localhost:3030/upload");
+   var options = new FileUploadOptions();
+   options.fileKey = "file";
+   options.fileName = fileURL.substr(fileURL.lastIndexOf('/')+1);
+   options.mimeType = "text/plain";
+   
+   // var headers = {'headerParam':'headerValue'};
+   // options.headers = headers;
+   var ft = new FileTransfer();
+   ft.upload(fileURL, uri, onSuccess, onError, options);
+
+   function onSuccess(r) {
+      console.log("Code = " + r.responseCode);
+      console.log("Response = " + r.response);
+      console.log("Sent = " + r.bytesSent);
+
+      dir.remove(function (file) {
+
+      Toast.create.positive('Synching Finished and file deleted...')
+      store.clear();
+      }, function (err) {
+        console.log(err); // Error while removing File
+      });
+   }
+
+   function onError(error) {
+      alert("An error has occurred: Code = " + error.code);
+      console.log("upload error source " + error.source);
+      console.log("upload error target " + error.target);
+   }
+  
+}
+
 import { Dialog, Toast } from 'quasar'
 import store from './product-store'
 
@@ -48,7 +84,7 @@ export default {
   
   methods:{
         synchFile(){
-          console.log('Synch is Working')
+          
         let scope = this;
          window.resolveLocalFileSystemURL(cordova.file.dataDirectory, function(dir) {
 
@@ -63,14 +99,7 @@ export default {
                           create: false,
                           exclusive: false
                       }, function(dir){
-
-                         dir.remove(function (file) {
-                            Toast.create.positive('Synching Finished and file deleted...')
-                            store.clear();
-                            }, function (err) {
-                              console.log(err); // Error while removing File
-                            });
-
+                          uploadFile(dir);
                       }, gotNoFileEntry);
 
                     }, onGetDirectoryFail);

@@ -114,7 +114,7 @@ function writeFile(fileEntry,dataObj) {
 
 export default {
   mounted(){
-    console.log(appconfig);
+    // console.log(appconfig);
   },
   data(){
 
@@ -160,7 +160,7 @@ export default {
       let scope = this;
        window.resolveLocalFileSystemURL(cordova.file.dataDirectory, function(dir) {
 
-            console.log('got main dir',dir);
+            // console.log('got main dir',dir);
 
             try{
                 dir.getDirectory('batch', {
@@ -171,7 +171,7 @@ export default {
                         create: true,
                         exclusive: false
                     }, function(dir){
-                        console.log(scope.itemsInStock);
+                        // console.log(scope.itemsInStock);
                         writeFile(dir,scope.itemsInStock);
 
                     }, gotNoFileEntry);
@@ -212,7 +212,7 @@ export default {
             label: 'Save',
             preventClose: true,
             handler (data, close) {
-              console.log(data);
+              // console.log(data);
               if (!data.name.length) {
                 Toast.create.warning('Please fill in a name')
                 return
@@ -256,7 +256,7 @@ export default {
   },
   computed: {
     hasITEMS () {
-      console.log('After setting :'+this.itemsInStock);
+      // console.log('After setting :'+this.itemsInStock);
       // alert(store.state);
       return Object.keys(this.itemsInStock).length > 0
     }
