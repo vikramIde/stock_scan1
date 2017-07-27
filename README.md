@@ -7,7 +7,7 @@
 
 - [System Setup](#system-setup)
 - [Project Setup](#project-setup)
-- [Offline Mode explanaion](#offline-mode-explanation)
+- [Offline Mode explanation](#offline-mode-explanation)
 - [Use Case](#use-case)
 - [Contributing](#contributing)
 - [Author](#author)
@@ -90,7 +90,8 @@ So when the file ```product.json``` is sent to server it will be delted for new 
 
 ## Use Case
 
-The major use case is that this app can be used anywhere , with out internet , and on a later point of time when you get internet you can sync it to server.
+The major use case could be Remote Warehouses facilities where internet is not good.
+So you can finish the stock scan and sync the data on a later point of time when in network
 
 So example of offline mode workflow.
 
