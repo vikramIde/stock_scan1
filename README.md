@@ -5,10 +5,10 @@
 
 <!-- toc -->
 
-- [System Setup](#System Setup)
-- [Project Setup](#Project Setup)
-- [Offline Mode explanaion](#Offline Mode explanaion)
-- [Use Case](#Use Case)
+- [System Setup](#System-Setup)
+- [Project Setup](#Project-Setup)
+- [Offline Mode explanaion](#Offline-Mode-explanaion)
+- [Use Case](#Use-Case)
 - [Contributing](#contributing)
 - [Author](#author)
 
