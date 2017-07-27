@@ -21,7 +21,6 @@
           <small>
             To scan new product please click on (In) tab and then (+) button on the bottom right corner
           </small>
-          
       </blockquote>
       <blockquote>
         <small>

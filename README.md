@@ -1,6 +1,18 @@
 # Stock Scanner App
 
 > A Ncp project
+## Table of Contents
+
+<!-- toc -->
+
+- [System Setup](#System Setup)
+- [Project Setup](#Project Setup)
+- [Offline Mode explanaion](#Offline Mode explanaion)
+- [Use Case](#Use Case)
+- [Contributing](#contributing)
+- [Author](#author)
+
+<!-- tocstop -->
 
 ## System Setup
 ```bash
@@ -18,8 +30,8 @@ $ sudo npm install -g quasar-cli
 
 ``` bash
 # Clone this project.
-$ git clone https://github.com/JCharante/stock_scan.git  # I personally use SSH, but not everyone has it setup
-$ cd stock_scan
+$ git clone https://github.com/vikramIde/stock_scan1.git  # I personally use SSH, but not everyone has it setup
+$ cd stock_scan1
 
 # install dependencies
 $ npm install
@@ -33,7 +45,7 @@ $ cd cordova
 $ cordova platform add android
 $ cordova run
 ```
-## Offline Mode explanaion
+## Offline Mode explanation
 
 So when you load the app first time , It will check in a folder called ```/batch``` , If file doesnt exist it takes you in the app .
 
@@ -81,3 +93,20 @@ So when the file ```product.json``` is sent to server it will be delted for new 
 The major use case is that this app can be used anywhere , with out internet , and on a later point of time when you get internet you can sync it to server.
 
 So example of offline mode workflow.
+
+## Contributing
+
+1. Fork it!
+2. Create your feature branch: `git checkout -b my-new-feature`
+3. Commit your changes: `git commit -am 'Add some feature'`
+4. Push to the branch: `git push origin my-new-feature`
+5. Submit a pull request :D
+
+
+## Author
+
+**StockScan** © [vikramIde](https://github.com/vikramIde), Released under the [MIT](./LICENSE) License.<br>
+Authored and maintained by vikramIde with help from contributors ([list](https://github.com/vikramIde/stock_scan1/graphs/contributors)).
+
+> [vick.Anand](https://facebook.com/vikramabhushan) · GitHub [@rapchik](https://github.com/vikramIde) · 
+
