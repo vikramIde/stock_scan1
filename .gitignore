@@ -10,5 +10,4 @@ cordova/platforms
 cordova/plugins
 thumbs.db
 !.gitkeep
-cordova/
 .idea
