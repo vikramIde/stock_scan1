@@ -1,40 +1,40 @@
 <template>
-  <div>
-     <div slot="header" class="toolbar">
-        <q-toolbar-title :padding="1">
-          Scan Stock (beta)
-        </q-toolbar-title>
-      </div>
-      <!-- Navigation Tabs -->
-      <q-tabs slot="navigation">
-        <q-tab icon="alarm" route="/stockin" exact replace>In</q-tab>
-        <q-tab icon="alarm" route="/stockout" exact replace>Out</q-tab>
-        <q-tab icon="help" route="/help" exact replace>help</q-tab>
-        <q-tab icon="help" route="/sync" exact replace>sync</q-tab>
-      </q-tabs>
+ <div>
+  <div slot="header" class="toolbar">
+    <q-toolbar-title :padding="1">
+      Scan Stock (beta)
+    </q-toolbar-title>
+  </div>
+  <!-- Navigation Tabs -->
+  <q-tabs slot="navigation">
+    <q-tab icon="alarm" route="/stockin" exact replace>In</q-tab>
+    <q-tab icon="alarm" route="/stockout" exact replace>Out</q-tab>
+    <q-tab icon="help" route="/help" exact replace>help</q-tab>
+    <q-tab icon="help" route="/sync" exact replace>sync</q-tab>
+  </q-tabs>
 
-    <div class="layout-padding">
-       <p class="caption">SKU</p>
+  <div class="layout-padding">
+    <p class="caption">SKU</p>
 
-      <blockquote v-if="!hasITEMS">
-          <small>
+    <blockquote v-if="!hasITEMS">
+      <small>
             Please Click on the (+) button to scan the item.
           </small>
-      </blockquote>
-      <div v-else class="list striped" >
-        <div class="item three-lines" v-if="item.direction == 'Out' " v-for="(item, id) in itemsInStock">
-            
-            <div class="item-primary bg-primary text-white"><i>assignment</i></div>
-            <div class="item-content has-secondary">
-              <div>{{item.code}}</div>
-              <div>{{item.timeStamp}}</div>
-            </div>
-            <div class="item-secondary stamp" style="color:red ;font-weight:bold">
-              {{item.direction}}
-            </div>
+    </blockquote>
+    <div v-else class="list striped">
+      <div class="item three-lines" v-if="item.direction == 'Out' " v-for="(item, id) in itemsInStock">
 
-              <div class="item-secondary">
-                <i :ref="'target' + id">
+        <div class="item-primary bg-primary text-white"><i>assignment</i></div>
+        <div class="item-content has-secondary">
+          <div>{{item.code}}</div>
+          <div>{{item.timeStamp}}</div>
+        </div>
+        <div class="item-secondary stamp" style="color:red ;font-weight:bold">
+          {{item.direction}}
+        </div>
+
+        <div class="item-secondary">
+          <i :ref="'target' + id">
                   more_horiz
                 
 
@@ -42,29 +42,25 @@
                   <div class="list">
                     <div class="item item-link" @click="$refs['popover' + id][0].close(), editProduct(id)">
                       <i class="item-primary">edit</i>
-                      <div class="item-content">Edit</div>
-                    </div>
-                    <div class="item item-link" @click="$refs['popover' + id][0].close(), deleteProduct(id)">
-                      <i class="item-primary">delete</i>
-                      <div class="item-content">Delete</div>
-                    </div>
-                  </div>
-                </q-popover>
-                </i>
-              </div>
-          </div>
+          <div class="item-content">Edit</div>
+        </div>
+        <div class="item item-link" @click="$refs['popover' + id][0].close(), deleteProduct(id)">
+          <i class="item-primary">delete</i>
+          <div class="item-content">Delete</div>
         </div>
       </div>
-        <q-fab class=" absolute-bottom-right" classNames="primary" direction="up">
-         <q-small-fab class="absolute-bottom-right" @click.native="scanQR()" icon="phonelink_ring"></q-small-fab>
-        </q-fab>
-    </div>
-
-    <!-- Footer -->
-    <div slot="footer" class="toolbar">
-    All right reserved Nano Corporation .
+      </q-popover>
+      </i>
     </div>
   </div>
+</div>
+</div>
+<q-fab class=" absolute-bottom-right" classNames="primary" direction="up">
+  <q-small-fab class="absolute-bottom-right" @click.native="scanQR()" icon="phonelink_ring"></q-small-fab>
+</q-fab>
+<div slot="footer" class="toolbar">All right reserved Nano Corporation . </div>
+
+</div>
 </template>
 
 <script>
